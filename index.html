@@ -246,13 +246,34 @@
       font-size:1.02rem;
     }
 
-    .signature-wrap{
-      margin-top:90px;
-      padding-top:38px;
-      border-top:1px solid var(--line);
-      display:flex;
-      justify-content:flex-end;
-    }
+   .signature-wrap{
+  margin-top:90px;
+  padding-top:38px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:60px;
+}
+
+.signature-chef{
+  text-align:left;
+}
+
+.signature-chef .name{
+  color:#b52626;
+  text-shadow:0 0 20px rgba(181,38,38,.25);
+}
+
+.signature-chef .underline{
+  margin-left:0;
+  margin-right:auto;
+  background:linear-gradient(90deg, #b52626, transparent);
+}
+
+.signature-saitekuro{
+  text-align:right;
+}
 
     .signature{
       width:min(420px,100%);
@@ -452,12 +473,20 @@
     </section>
 
     <div class="signature-wrap">
-      <div class="signature">
-        <small>Approuvé et signé par</small>
-        <div class="name">Saitekuro Sekairo</div>
-        <div class="underline"></div>
-      </div>
-    </div>
+
+  <div class="signature signature-chef">
+    <small>Espada 3</small>
+    <div class="name">Baji Atameari</div>
+    <div class="underline"></div>
+  </div>
+
+  <div class="signature signature-saitekuro">
+    <small>Approuvé et signé par</small>
+    <div class="name">Saitekuro Sekairo</div>
+    <div class="underline"></div>
+  </div>
+
+</div>
   </main>
 
   <footer>
