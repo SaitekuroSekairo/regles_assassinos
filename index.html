@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'Ordre de l'Assassinat</title>
+  <meta name="description" content="Règlement interne et principes fondamentaux de l'Ordre de l'Assassinat." />
+  <style>
+    :root{
+      --bg:#050505;
+      --bg-soft:#0b0b0b;
+      --panel:#101010;
+      --panel-2:#151515;
+      --text:#f2f2f2;
+      --muted:#a8a8a8;
+      --line:#2b2b2b;
+      --accent:#8e1515;
+      --accent-2:#c12424;
+      --glow:rgba(193,36,36,.22);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(142,21,21,.12), transparent 34%),
+        linear-gradient(180deg, #050505 0%, #080808 42%, #050505 100%);
+      color:var(--text);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.65;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.22;
+      background-image:
+        linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+      background-size:48px 48px;
+      mask-image:linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(5,5,5,.78);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .nav{
+      width:min(var(--max), calc(100% - 32px));
+      margin:auto;
+      min-height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      font-size:.86rem;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .navlinks{
+      display:flex;
+      gap:22px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .navlinks a:hover{color:var(--text)}
+
+    .hero{
+      width:min(var(--max), calc(100% - 32px));
+      margin:auto;
+      min-height:76vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:86px 0 72px;
+    }
+
+    .hero-inner{max-width:850px}
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 13px;
+      border:1px solid rgba(193,36,36,.25);
+      background:rgba(142,21,21,.07);
+      color:#d3a0a0;
+      border-radius:999px;
+      font-size:.76rem;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+    }
+
+    .sigil{
+      width:9px;height:9px;border-radius:50%;
+      background:var(--accent-2);
+      box-shadow:0 0 18px var(--glow);
+    }
+
+    h1{
+      margin:26px 0 16px;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(3.1rem,8vw,7rem);
+      line-height:.95;
+      letter-spacing:-.04em;
+      font-weight:500;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:740px;
+      color:var(--muted);
+      font-size:clamp(1rem,2vw,1.18rem);
+    }
+
+    .hero-rule{
+      margin:34px auto 0;
+      width:min(520px,100%);
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--accent), transparent);
+      box-shadow:0 0 24px var(--glow);
+    }
+
+    main{
+      width:min(var(--max), calc(100% - 32px));
+      margin:auto;
+      padding-bottom:100px;
+    }
+
+    section{
+      scroll-margin-top:90px;
+      margin-top:80px;
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:140px 1fr;
+      gap:24px;
+      align-items:end;
+      margin-bottom:28px;
+    }
+
+    .section-index{
+      color:#7b7b7b;
+      font-size:.78rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    h2{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(2rem,4vw,3.2rem);
+      font-weight:500;
+      line-height:1.1;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      padding:24px 24px 22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.018), transparent),
+        var(--panel);
+      border:1px solid var(--line);
+      border-radius:18px;
+      transition:.22s ease;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      left:0;top:0;bottom:0;
+      width:2px;
+      background:linear-gradient(180deg, transparent, var(--accent), transparent);
+      opacity:.55;
+    }
+
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:#3c2727;
+      box-shadow:0 16px 40px rgba(0,0,0,.22);
+    }
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:1.03rem;
+      letter-spacing:.01em;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    .rule-no{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:.74rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      color:#b65b5b;
+      text-transform:uppercase;
+    }
+
+    .principles .card{
+      min-height:190px;
+    }
+
+    .finality{
+      padding:34px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(142,21,21,.10), transparent 34%),
+        var(--bg-soft);
+      border-radius:22px;
+    }
+
+    .finality p{
+      margin:0;
+      color:#c4c4c4;
+      font-size:1.02rem;
+    }
+
+    .signature-wrap{
+      margin-top:90px;
+      padding-top:38px;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:flex-end;
+    }
+
+    .signature{
+      width:min(420px,100%);
+      text-align:right;
+    }
+
+    .signature small{
+      display:block;
+      color:#777;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.7rem;
+      margin-bottom:8px;
+    }
+
+    .signature .name{
+      font-family:"Brush Script MT","Segoe Script",cursive;
+      font-size:2.15rem;
+      color:#e9e9e9;
+      transform:rotate(-2deg);
+      display:inline-block;
+      text-shadow:0 0 24px rgba(255,255,255,.05);
+    }
+
+    .signature .underline{
+      width:210px;
+      height:1px;
+      margin:7px 0 0 auto;
+      background:linear-gradient(90deg, transparent, var(--accent-2));
+    }
+
+    footer{
+      width:min(var(--max), calc(100% - 32px));
+      margin:auto;
+      padding:0 0 28px;
+      color:#5e5e5e;
+      font-size:.75rem;
+      text-align:center;
+    }
+
+    @media(max-width:760px){
+      .navlinks{display:none}
+      .hero{min-height:68vh}
+      .section-head{grid-template-columns:1fr;gap:8px}
+      .grid{grid-template-columns:1fr}
+      section{margin-top:62px}
+      .card{padding:21px}
+      .finality{padding:24px}
+      .signature-wrap{justify-content:flex-start}
+      .signature{text-align:left}
+      .signature .underline{margin-left:0;margin-right:auto}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="#top" class="brand">Ordre de l'Assassinat</a>
+      <div class="navlinks">
+        <a href="#principes">Principes</a>
+        <a href="#regles">Règles</a>
+        <a href="#finalite">Finalité</a>
+      </div>
+    </nav>
+  </header>
+
+  <div id="top" class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow"><span class="sigil"></span> Règlement interne</div>
+      <h1>L'Ordre de<br>l'Assassinat</h1>
+      <p>
+        Ce règlement constitue la base commune de l'Ordre. Il fixe les principes que chaque Arrancar
+        doit connaître et respecter, quelle que soit sa section ou sa position.
+      </p>
+      <div class="hero-rule"></div>
+    </div>
+  </div>
+
+  <main>
+    <section id="principes" class="principles">
+      <div class="section-head">
+        <div class="section-index">I — Fondements</div>
+        <h2>Principes fondamentaux</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <span class="rule-no">Principe I</span>
+          <h3>L'Ordre avant l'individu</h3>
+          <p>Les intérêts personnels ne doivent jamais affaiblir l'Ordre, ses membres ou ses objectifs.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Principe II</span>
+          <h3>Aucun des nôtres n'est abandonné</h3>
+          <p>Un membre de l'Ordre n'est pas laissé derrière tant qu'une possibilité raisonnable de le récupérer existe.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Principe III</span>
+          <h3>La puissance impose le respect</h3>
+          <p>La force et la capacité à assumer ses responsabilités fondent naturellement l'autorité au sein de l'Ordre.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Principe IV</span>
+          <h3>Nos querelles ne doivent jamais affaiblir l'Ordre</h3>
+          <p>Les rivalités sont tolérées tant qu'elles ne mettent pas en danger la cohésion ou la survie des membres.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Principe V</span>
+          <h3>Ce qui appartient à l'Ordre reste dans l'Ordre</h3>
+          <p>Ses informations, ses secrets et ses affaires internes ne doivent pas être exposés à ceux qui lui sont étrangers.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="regles">
+      <div class="section-head">
+        <div class="section-index">II — Code interne</div>
+        <h2>Règles de l'Ordre</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <span class="rule-no">Règle 01</span>
+          <h3>Formation complète obligatoire</h3>
+          <p>Toute formation doit transmettre les informations essentielles au fonctionnement de l'Ordre : ses principes, son organisation, sa hiérarchie, les différentes sections et leur utilité, ainsi que les règles et procédures importantes. Une formation ne doit pas laisser volontairement un membre dans l'ignorance d'un élément essentiel.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 02</span>
+          <h3>Aucun membre laissé derrière</h3>
+          <p>Lors d'une mission ou d'un affrontement, la récupération et l'extraction des membres de l'Ordre doivent être prises en considération. Aucun Arrancar ne doit être volontairement abandonné tant qu'il existe une possibilité raisonnable de le ramener.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 03</span>
+          <h3>Interdiction de tuer un membre de l'Ordre</h3>
+          <p>Les conflits internes doivent être réglés sans provoquer la mort d'un membre. Les affrontements, rivalités et règlements de comptes ne doivent jamais aller jusqu'à l'exécution de l'un des nôtres.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 04</span>
+          <h3>L'Ordre passe avant les sections</h3>
+          <p>Chaque section possède sa fonction et peut avoir ses propres méthodes, mais toutes servent le même Ordre. Aucune rivalité entre sections ne doit prendre le dessus sur l'intérêt commun.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 05</span>
+          <h3>Respect de la hiérarchie</h3>
+          <p>Les ordres provenant d'un supérieur légitime doivent être respectés. Un ordre qui entre directement en contradiction avec un principe fondamental de l'Ordre peut cependant être remis en cause.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 06</span>
+          <h3>Responsabilité du supérieur</h3>
+          <p>Celui qui donne un ordre doit en assumer les conséquences. Un supérieur ne peut pas se décharger entièrement de sa responsabilité sur le membre ayant exécuté ses instructions.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 07</span>
+          <h3>Confidentialité</h3>
+          <p>Les informations internes, les identités sensibles, les missions, les décisions et les secrets de l'Ordre ne doivent pas être transmis à des individus extérieurs sans autorisation.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 08</span>
+          <h3>L'intérêt de l'Ordre prime sur l'intérêt personnel</h3>
+          <p>Aucune vengeance, ambition, rancune ou affaire personnelle ne doit conduire un membre à compromettre l'Ordre, une mission ou ses camarades.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 09</span>
+          <h3>Devoir d'assistance</h3>
+          <p>Lorsqu'un membre est en difficulté, les autres membres doivent lui porter assistance dans la mesure de leurs capacités. Refuser volontairement toute aide sans raison valable va à l'encontre du principe selon lequel aucun des nôtres n'est abandonné.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 10</span>
+          <h3>Interdiction de dissimuler une faute grave</h3>
+          <p>La loyauté envers un camarade ne justifie pas de cacher une trahison ou un acte mettant directement en danger l'Ordre ou ses membres.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 11</span>
+          <h3>Droit d'être entendu</h3>
+          <p>Lorsqu'un membre est accusé d'une faute importante, sa version des faits doit être entendue avant qu'une décision définitive ne soit prise à son encontre.</p>
+        </article>
+
+        <article class="card">
+          <span class="rule-no">Règle 12</span>
+          <h3>Sanctions adaptées à la faute</h3>
+          <p>Aucune sanction n'est prédéfinie. Toute sanction est décidée au cas par cas et conçue sur mesure en fonction de la règle qui n'a pas été respectée, de la gravité des actes, de leurs conséquences et des circonstances. La sanction doit être adaptée à la faute commise.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="finalite">
+      <div class="section-head">
+        <div class="section-index">III — Finalité</div>
+        <h2>Finalité du règlement</h2>
+      </div>
+
+      <div class="finality">
+        <p>
+          Ces règles ont pour objectif de préserver la cohésion, la force et la continuité de l'Ordre.
+          Elles ne cherchent pas à supprimer les rapports de force propres aux Arrancars, mais à empêcher
+          que ceux-ci ne détruisent l'organisation de l'intérieur. Chaque membre reste libre de développer
+          sa puissance, son influence et ses rivalités tant que celles-ci ne dépassent pas les limites
+          fixées par les principes fondamentaux.
+        </p>
+      </div>
+    </section>
+
+    <div class="signature-wrap">
+      <div class="signature">
+        <small>Approuvé et signé par</small>
+        <div class="name">Saitekuro Sekairo</div>
+        <div class="underline"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Ordre de l'Assassinat — Règlement interne
+  </footer>
+</body>
+</html>
