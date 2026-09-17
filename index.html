@@ -301,6 +301,17 @@
   text-align:right;
 }
 
+.signature-espadas{
+  display:flex;
+  flex-direction:column;
+  gap:34px;
+  width:min(420px,100%);
+}
+
+.signature-espadas .signature{
+  width:100%;
+}
+
     .signature{
       width:min(420px,100%);
       text-align:right;
@@ -395,7 +406,7 @@
       <div class="grid">
         <article class="card">
           <span class="rule-no">Principe I</span>
-          <h3>L'Ordre avant l'individu</h3>
+          <h3>L'Ordre avant l'arrancar</h3>
           <p>Les intérêts personnels ne doivent jamais affaiblir l'Ordre, ses membres ou ses objectifs.</p>
         </article>
 
@@ -438,68 +449,56 @@
           <p>Toute formation doit transmettre les informations essentielles au fonctionnement de l'Ordre : ses principes, son organisation, sa hiérarchie, les différentes sections et leur utilité, ainsi que les règles et procédures importantes. Une formation ne doit pas laisser volontairement un membre dans l'ignorance d'un élément essentiel.</p>
         </article>
 
-        <article class="card">
+<article class="card">
           <span class="rule-no">Règle 02</span>
-          <h3>Aucun membre laissé derrière</h3>
-          <p>Lors d'une mission ou d'un affrontement, la récupération et l'extraction des membres de l'Ordre doivent être prises en considération. Aucun Arrancar ne doit être volontairement abandonné tant qu'il existe une possibilité raisonnable de le ramener.</p>
+          <h3>Mort d'un membre de l'Ordre</h3>
+          <p>Les membres de l'Ordre peuvent entrer en conflit entre eux à leur guise. Ces affrontements sont libres tant qu'ils ne compromettent pas directement l'Ordre. La mort d'un membre de l'Ordre n'est toutefois acceptée qu'avec l'autorisation préalable d'un Espada.</p>
         </article>
 
         <article class="card">
           <span class="rule-no">Règle 03</span>
-          <h3>Interdiction de tuer un membre de l'Ordre</h3>
-          <p>Les conflits internes doivent être réglés sans provoquer la mort d'un membre. Les affrontements, rivalités et règlements de comptes ne doivent jamais aller jusqu'à l'exécution de l'un des nôtres.</p>
-        </article>
-
-        <article class="card">
-          <span class="rule-no">Règle 04</span>
           <h3>L'Ordre passe avant les sections</h3>
           <p>Chaque section possède sa fonction et peut avoir ses propres méthodes, mais toutes servent le même Ordre. Aucune rivalité entre sections ne doit prendre le dessus sur l'intérêt commun.</p>
         </article>
 
         <article class="card">
-          <span class="rule-no">Règle 05</span>
+          <span class="rule-no">Règle 04</span>
           <h3>Respect de la hiérarchie</h3>
           <p>Les ordres provenant d'un supérieur légitime doivent être respectés. Un ordre qui entre directement en contradiction avec un principe fondamental de l'Ordre peut cependant être remis en cause.</p>
         </article>
 
         <article class="card">
-          <span class="rule-no">Règle 06</span>
+          <span class="rule-no">Règle 05</span>
           <h3>Responsabilité du supérieur</h3>
           <p>Celui qui donne un ordre doit en assumer les conséquences. Un supérieur ne peut pas se décharger entièrement de sa responsabilité sur le membre ayant exécuté ses instructions.</p>
         </article>
 
         <article class="card">
-          <span class="rule-no">Règle 07</span>
+          <span class="rule-no">Règle 06</span>
           <h3>Confidentialité</h3>
           <p>Les informations internes, les identités sensibles, les missions, les décisions et les secrets de l'Ordre ne doivent pas être transmis à des individus extérieurs sans autorisation.</p>
         </article>
 
         <article class="card">
-          <span class="rule-no">Règle 08</span>
+          <span class="rule-no">Règle 07</span>
           <h3>L'intérêt de l'Ordre prime sur l'intérêt personnel</h3>
           <p>Aucune vengeance, ambition, rancune ou affaire personnelle ne doit conduire un membre à compromettre l'Ordre, une mission ou ses camarades.</p>
         </article>
 
-        <article class="card">
-          <span class="rule-no">Règle 09</span>
-          <h3>Devoir d'assistance</h3>
-          <p>Lorsqu'un membre est en difficulté, les autres membres doivent lui porter assistance dans la mesure de leurs capacités. Refuser volontairement toute aide sans raison valable va à l'encontre du principe selon lequel aucun des nôtres n'est abandonné.</p>
-        </article>
-
-        <article class="card">
-          <span class="rule-no">Règle 10</span>
+<article class="card">
+          <span class="rule-no">Règle 08</span>
           <h3>Interdiction de dissimuler une faute grave</h3>
           <p>La loyauté envers un camarade ne justifie pas de cacher une trahison ou un acte mettant directement en danger l'Ordre ou ses membres.</p>
         </article>
 
         <article class="card">
-          <span class="rule-no">Règle 11</span>
+          <span class="rule-no">Règle 09</span>
           <h3>Droit d'être entendu</h3>
           <p>Lorsqu'un membre est accusé d'une faute importante, sa version des faits doit être entendue avant qu'une décision définitive ne soit prise à son encontre.</p>
         </article>
 
         <article class="card">
-  <span class="rule-no">Règle 12</span>
+  <span class="rule-no">Règle 10</span>
   <h3>Interdiction de laisser les portes ouvertes</h3>
   <p>
     Toute porte donnant accès aux locaux de l'Ordre doit être refermée après chaque passage.
@@ -529,10 +528,17 @@
     
     <div class="signature-wrap">
 
-  <div class="signature signature-chef">
-    <small>Espada 3</small>
-    <div class="name">Baji Atameari</div>
-    <div class="underline"></div>
+  <div class="signature-espadas">
+    <div class="signature signature-chef">
+      <small>Espada 3</small>
+      <div class="name">Baji Atameari</div>
+      <div class="underline"></div>
+    </div>
+
+    <div class="signature signature-chef">
+      <div class="name">Islas Torres</div>
+      <div class="underline"></div>
+    </div>
   </div>
 
   <div class="signature signature-saitekuro">
